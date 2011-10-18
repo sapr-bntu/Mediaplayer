@@ -3,7 +3,6 @@
 
 #include <QMainWindow>
 #include <QtSql>
-
 namespace Ui {
     class MainWindow;
 }

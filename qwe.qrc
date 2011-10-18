@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>Кн. ПАУЗА.png</file>
+        <file>Кн. перемотка вперёд.png</file>
+        <file>Кн. перемотка назад.png</file>
+        <file>Кн. СТОП.png</file>
+        <file>Кн.ПУСК.png</file>
+        <file>Медиаплейер копия.jpg</file>
+    </qresource>
+</RCC>

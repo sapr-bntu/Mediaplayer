@@ -1,12 +1,11 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2011-09-27T16:24:44
+# Project created by QtCreator 2011-10-11T15:28:25
 #
 #-------------------------------------------------
-
 QT       += core gui sql
 
-TARGET = untitled5
+TARGET = natka
 TEMPLATE = app
 
 
@@ -16,3 +15,6 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h
 
 FORMS    += mainwindow.ui
+
+RESOURCES += \
+    qwe.qrc
