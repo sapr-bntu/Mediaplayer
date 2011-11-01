@@ -21,15 +21,15 @@ MainWindow::MainWindow(QWidget *parent) :
      Phonon::MediaSource source("Kalimba.mp3");
      mediaObject->setCurrentSource(source);
  //    mediaObject->play();
-     connect(ui->ButtonPlay, SIGNAL(clicked()), mediaObject, SLOT(play()));
+     connect(ui->ButtonPlay, SIGNAL(clicked()), this, SLOT(play()));
       connect(ui->ButtonStop, SIGNAL(clicked()), mediaObject, SLOT(stop()));
        connect(ui->ButtonPause, SIGNAL(clicked()), mediaObject, SLOT(pause()));
 // connect(ui->ButtonNext, SIGNAL(clicked()), mediaObject, SLOT(next()));
        connect(ui->ButtonNext, SIGNAL(clicked()), this, SLOT(next()));
 
-   QSqlTableModel *model;
-   QSqlQuery quer;
-   quer.exec("INSERT INTO tablica (Number, Name, Ocenka)  VALUES ('10','Tata','40');");
+
+//   QSqlQuery quer;
+//   quer.exec("INSERT INTO tablica (Number, Name, Ocenka)  VALUES ('10','Tata','40');");
 
     model = new QSqlTableModel(this);
     model->setTable("tablica");
@@ -44,4 +44,15 @@ MainWindow::~MainWindow()
 void MainWindow::next()
 {
     qDebug()<<"uj67";
+}
+void MainWindow::play()
+{
+    QModelIndex index;
+    QString str;
+    index = ui->tableView->selectionModel()->currentIndex();
+    str = model->record(index.row()).value(1).toString();
+    qDebug()<<"row="<<index.row()<< str;
+    Phonon::MediaSource source("Kalimba.mp3");
+    mediaObject->setCurrentSource(source);
+    mediaObject->play();
 }

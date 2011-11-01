@@ -17,6 +17,7 @@ public:
     ~MainWindow();
 private slots:
     void next();
+    void play();
 private:
     Ui::MainWindow *ui;
     Phonon::SeekSlider *seekSlider;
@@ -24,6 +25,7 @@ private:
     Phonon::MediaObject *metaInformationResolver;
     Phonon::AudioOutput *audioOutput;
     Phonon::VolumeSlider *volumeSlider;
+    QSqlTableModel *model;
 };
 
 #endif // MAINWINDOW_H
