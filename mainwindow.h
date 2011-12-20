@@ -44,6 +44,8 @@ private slots:
     void prev();
     void tableClicked(int row, int column);
 
+    void on_ButtonPlay_clicked();
+
 private:
    int currentid;
     int id ;

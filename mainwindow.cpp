@@ -7,6 +7,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+
     QFile file("Playlist.s3db") ;
     QSqlDatabase db;
     if (file.exists())
@@ -36,6 +38,16 @@ MainWindow::MainWindow(QWidget *parent) :
      Phonon::createPath(mediaObject, audioOutput);
      Phonon::MediaSource source("Kalimba.mp3");
      mediaObject->setCurrentSource(source);
+         seekSlider = new Phonon::SeekSlider(this);
+         seekSlider->setMediaObject(mediaObject);
+
+         volumeSlider = new Phonon::VolumeSlider(this);
+         volumeSlider->setAudioOutput(audioOutput);
+         volumeSlider->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
+         ui->verticalLayout->addWidget(seekSlider);
+         ui->verticalLayout->addWidget(volumeSlider);
+
+//         ui->centralWidget->layout()->addChildWidget(volumeSlider);
      connect(ui->ButtonPlay, SIGNAL(clicked()), this, SLOT(play()));
      connect(ui->ButtonStop, SIGNAL(clicked()), mediaObject, SLOT(stop()));
      connect(ui->ButtonPause, SIGNAL(clicked()), mediaObject, SLOT(pause()));
@@ -88,7 +100,7 @@ void MainWindow::play()
 {
     QString str;
 
-    str = model->record(curentIndex).value(1).toString();
+    str = model->record(curentIndex).value("Location").toString();
 
     qDebug()<<"row="<<curentIndex<< str;
     Phonon::MediaSource source(str);
@@ -118,7 +130,7 @@ void MainWindow::on_tableView_clicked(QModelIndex index)
     id = model-> record(index.row()).value("ID").toInt();
     currentid = id;
     index = ui->tableView->selectionModel()->currentIndex();
-    str = model->record(index.row()).value(1).toString();
+    str = model->record(index.row()).value("Location").toString();
     curentIndex=index.row();
     qDebug()<<str;
     Phonon::MediaSource source(str);
@@ -152,5 +164,10 @@ void MainWindow::on_pushButton_clicked()
        qDebug()<<query;
          quer.exec(query);
          model->select();
+
+}
+
+void MainWindow::on_ButtonPlay_clicked()
+{
 
 }
