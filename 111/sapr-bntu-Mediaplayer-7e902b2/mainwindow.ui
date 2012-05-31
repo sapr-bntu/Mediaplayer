@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>359</width>
-    <height>321</height>
+    <width>486</width>
+    <height>438</height>
    </rect>
   </property>
   <property name="palette">
@@ -436,152 +436,164 @@
    <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
-        <item>
-         <widget class="QTableView" name="tableView">
-          <property name="selectionMode">
-           <enum>QAbstractItemView::SingleSelection</enum>
-          </property>
-          <property name="selectionBehavior">
-           <enum>QAbstractItemView::SelectRows</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_2">
-          <item>
-           <widget class="QPushButton" name="pushButton_2">
-            <property name="text">
-             <string>Delete</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButton">
-            <property name="text">
-             <string>Insert</string>
-            </property>
-            <property name="autoRepeatDelay">
-             <number>300</number>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QPushButton" name="ButtonStop">
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset resource="qwe.qrc">
-            <normaloff>:/new/prefix1/Кн. СТОП.png</normaloff>:/new/prefix1/Кн. СТОП.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>50</width>
-            <height>40</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="ButtonPlay">
-          <property name="styleSheet">
-           <string notr="true">image: url(:/new/prefix1/F:/ВСР/Кн. ПАУЗА.png);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset resource="qwe.qrc">
-            <normaloff>:/new/prefix1/Кн.ПУСК.png</normaloff>:/new/prefix1/Кн.ПУСК.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>50</width>
-            <height>40</height>
-           </size>
-          </property>
-          <property name="shortcut">
-           <string/>
-          </property>
-          <property name="autoRepeat">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="ButtonPrev">
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset resource="qwe.qrc">
-            <normaloff>:/new/prefix1/Кн. перемотка назад.png</normaloff>:/new/prefix1/Кн. перемотка назад.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>50</width>
-            <height>40</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="ButtonPause">
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset resource="qwe.qrc">
-            <normaloff>:/new/prefix1/Кн. ПАУЗА.png</normaloff>:/new/prefix1/Кн. ПАУЗА.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>50</width>
-            <height>40</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="ButtonNext">
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset resource="qwe.qrc">
-            <normaloff>:/new/prefix1/Кн. перемотка вперёд.png</normaloff>:/new/prefix1/Кн. перемотка вперёд.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>50</width>
-            <height>40</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </item>
-   </layout>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>280</y>
+      <width>331</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="ButtonStop">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="qwe.qrc">
+         <normaloff>:/new/prefix1/Кн. СТОП.png</normaloff>:/new/prefix1/Кн. СТОП.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>40</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="ButtonPlay">
+       <property name="styleSheet">
+        <string notr="true">image: url(:/new/prefix1/F:/ВСР/Кн. ПАУЗА.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="qwe.qrc">
+         <normaloff>:/new/prefix1/Кн.ПУСК.png</normaloff>:/new/prefix1/Кн.ПУСК.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="shortcut">
+        <string/>
+       </property>
+       <property name="autoRepeat">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="ButtonPrev">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="qwe.qrc">
+         <normaloff>:/new/prefix1/Кн. перемотка назад.png</normaloff>:/new/prefix1/Кн. перемотка назад.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>40</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="ButtonPause">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="qwe.qrc">
+         <normaloff>:/new/prefix1/Кн. ПАУЗА.png</normaloff>:/new/prefix1/Кн. ПАУЗА.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>40</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="ButtonNext">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="qwe.qrc">
+         <normaloff>:/new/prefix1/Кн. перемотка вперёд.png</normaloff>:/new/prefix1/Кн. перемотка вперёд.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>40</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>190</y>
+      <width>71</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="text">
+        <string>Delete</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>Insert</string>
+       </property>
+       <property name="autoRepeatDelay">
+        <number>300</number>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QTableView" name="tableView">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>321</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <property name="selectionMode">
+     <enum>QAbstractItemView::SingleSelection</enum>
+    </property>
+    <property name="selectionBehavior">
+     <enum>QAbstractItemView::SelectRows</enum>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>359</width>
+     <width>486</width>
      <height>21</height>
     </rect>
    </property>

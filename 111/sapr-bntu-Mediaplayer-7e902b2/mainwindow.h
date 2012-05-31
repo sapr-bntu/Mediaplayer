@@ -1,8 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
-#include <QtSql>
+ #include <QMainWindow>
+  #include <QtSql>
 #include <phonon>
 #include <phonon/audiooutput.h>
  #include <phonon/seekslider.h>
@@ -30,23 +30,24 @@ public:
     QModelIndex index;
     int curentIndex;
 
-private slots:
+public slots:
 
     void delete1();
 
-private slots:
+public slots:
     void on_pushButton_clicked();
     void on_ButtonPrev_clicked();
     void on_ButtonNext_clicked();
     void on_tableView_clicked(QModelIndex index);
-    void next();
-    void play();
-    void prev();
+   int next();
+      QString play();
+    int prev();
+   // int pause();
     void tableClicked(int row, int column);
+    QModelIndex current();
+        int stop();
 
-    void on_ButtonPlay_clicked();
-
-private:
+public:
    int currentid;
     int id ;
     Ui::MainWindow *ui;

@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
+#include "D:\ferz\tmp\qt\TEST\111\sapr-bntu-Mediaplayer-7e902b2\ui_mainwindow.h"
 #include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -7,8 +7,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-
     QFile file("Playlist.s3db") ;
     QSqlDatabase db;
     if (file.exists())
@@ -38,16 +36,6 @@ MainWindow::MainWindow(QWidget *parent) :
      Phonon::createPath(mediaObject, audioOutput);
      Phonon::MediaSource source("Kalimba.mp3");
      mediaObject->setCurrentSource(source);
-         seekSlider = new Phonon::SeekSlider(this);
-         seekSlider->setMediaObject(mediaObject);
-
-         volumeSlider = new Phonon::VolumeSlider(this);
-         volumeSlider->setAudioOutput(audioOutput);
-         volumeSlider->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
-         ui->verticalLayout->addWidget(seekSlider);
-         ui->verticalLayout->addWidget(volumeSlider);
-
-//         ui->centralWidget->layout()->addChildWidget(volumeSlider);
      connect(ui->ButtonPlay, SIGNAL(clicked()), this, SLOT(play()));
      connect(ui->ButtonStop, SIGNAL(clicked()), mediaObject, SLOT(stop()));
      connect(ui->ButtonPause, SIGNAL(clicked()), mediaObject, SLOT(pause()));
@@ -86,51 +74,60 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-void MainWindow::next()
+int MainWindow::next()
 {
     curentIndex++;
     MainWindow::play();
+     return curentIndex;
 }
-void MainWindow::prev()
+int MainWindow::prev()
 {
     curentIndex--;
     MainWindow::play();
+     return curentIndex;
 }
-void MainWindow::play()
+  QString MainWindow::play()
 {
     QString str;
-
-    str = model->record(curentIndex).value("Location").toString();
-
+    str = model->record(curentIndex).value(1).toString();
     qDebug()<<"row="<<curentIndex<< str;
     Phonon::MediaSource source(str);
     mediaObject->setCurrentSource(source);
     mediaObject->play();
+    ui->tableView->selectRow(curentIndex);
+    return str;
 
-   ui->tableView->selectRow(curentIndex);
 
+}
+int MainWindow::stop()
+{
+mediaObject->stop();
+return mediaObject->state();
 }
 void MainWindow::tableClicked(int row, int /* column */)
  {
      bool wasPlaying = mediaObject->state() == Phonon::PlayingState;
-
      mediaObject->stop();
-
      if (row >= sources.size())
          return;
-
      mediaObject->setCurrentSource(sources[row]);
 qDebug()<<sources.size();
 
  }
 
+QModelIndex MainWindow::current()
+{
+    index=ui->tableView->selectionModel()->currentIndex();
+    return index;
+
+}
 void MainWindow::on_tableView_clicked(QModelIndex index)
 {
     QString str;
     id = model-> record(index.row()).value("ID").toInt();
     currentid = id;
     index = ui->tableView->selectionModel()->currentIndex();
-    str = model->record(index.row()).value("Location").toString();
+    str = model->record(index.row()).value(1).toString();
     curentIndex=index.row();
     qDebug()<<str;
     Phonon::MediaSource source(str);
@@ -164,10 +161,5 @@ void MainWindow::on_pushButton_clicked()
        qDebug()<<query;
          quer.exec(query);
          model->select();
-
-}
-
-void MainWindow::on_ButtonPlay_clicked()
-{
 
 }
