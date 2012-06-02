@@ -38,10 +38,12 @@ private slots:
     void on_pushButton_clicked();
     void on_ButtonPrev_clicked();
     void on_ButtonNext_clicked();
-    void on_tableView_clicked(QModelIndex index);
-    void next();
-    void play();
-    void prev();
+    QString on_tableView_clicked();
+    int next();
+    QString play();
+    int prev();
+    int stop();
+    int pause();
     void tableClicked(int row, int column);
 
     void on_ButtonPlay_clicked();

@@ -86,29 +86,41 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-void MainWindow::next()
+int MainWindow::next()
 {
     curentIndex++;
     MainWindow::play();
+    return curentIndex;
 }
-void MainWindow::prev()
+int MainWindow::prev()
 {
     curentIndex--;
     MainWindow::play();
+    return curentIndex;
 }
-void MainWindow::play()
+QString MainWindow::play()
 {
     QString str;
 
-    str = model->record(curentIndex).value("Location").toString();
+    str = model->record(curentIndex).value(1).toString();
 
-    qDebug()<<"row="<<curentIndex<< str;
+    //qDebug()<<"row="<<curentIndex<< str;
     Phonon::MediaSource source(str);
     mediaObject->setCurrentSource(source);
     mediaObject->play();
 
    ui->tableView->selectRow(curentIndex);
-
+return str;
+}
+int MainWindow::stop()
+{
+mediaObject->stop();
+return mediaObject->state();
+}
+int MainWindow::pause()
+{
+mediaObject->pause();
+return mediaObject->state();
 }
 void MainWindow::tableClicked(int row, int /* column */)
  {
@@ -123,9 +135,9 @@ void MainWindow::tableClicked(int row, int /* column */)
 qDebug()<<sources.size();
 
  }
-
-void MainWindow::on_tableView_clicked(QModelIndex index)
+QString MainWindow::on_tableView_clicked()
 {
+    QModelIndex index;
     QString str;
     id = model-> record(index.row()).value("ID").toInt();
     currentid = id;
@@ -134,7 +146,7 @@ void MainWindow::on_tableView_clicked(QModelIndex index)
     curentIndex=index.row();
     qDebug()<<str;
     Phonon::MediaSource source(str);
-
+return str;
 }
 
 
